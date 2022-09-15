@@ -1,0 +1,15 @@
+
+replicaCount: 1
+
+# image repository and tag are set automatically by tilt
+image:
+  repository: ""
+  tag: "" 
+
+service:
+  type: ClusterIP 
+  port: 3000
+
+env:
+- name: MY_ENV_VAR 
+  value: my_env_var

@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Crew {
+  id          String   @unique @default(uuid()) @db.Uuid
+  name        String
+  description String?
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  members     String[]
+
+  @@map("teams")
+}
+
+model Delivery {
+  id             String   @unique @default(uuid()) @db.Uuid
+  name           String
+  destination    String
+  contents       String
+  additionalInfo String?  @map("additional_info")
+  createdAt      DateTime @default(now()) @map("created_at")
+  completed      Boolean  @default(false)
+  completedAt    DateTime @map("completed_at")
+
+  @@map("deliveries")
+}

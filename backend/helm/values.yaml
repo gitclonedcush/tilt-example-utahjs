@@ -1,0 +1,15 @@
+
+replicaCount: 1
+
+# image repository and tag are set automatically by tilt
+image:
+  repository: ""
+  tag: "" 
+
+service:
+  type: ClusterIP 
+  port: 3000
+
+env:
+- name: DATABASE_URL
+  value: "postgres://postgres:password@postgresql/planetexpress" # postgres://username:password@<k8s_svc_name>/db_name
