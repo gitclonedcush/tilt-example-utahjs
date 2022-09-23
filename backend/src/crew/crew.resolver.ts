@@ -1,3 +1,4 @@
+import { Logger } from '@nestjs/common';
 import { Resolver, Query } from '@nestjs/graphql';
 import { CrewService } from './crew.service';
 import { Crew } from './model/crew.model';
@@ -8,6 +9,8 @@ export class CrewResolver {
 
   @Query(() => [Crew])
   async crews() {
+    Logger.log('[CrewResolver] returning list of crews');
+
     return this.crewService.findAll();
   }
 }

@@ -15,7 +15,7 @@ def require_tool(tool):
 
 def build(svc_name, svc_dir):
     # img name should be the full path to the image registry for remote cluster deploys
-    img_name = 'my-registry/image'
+    # img_name = 'my-registry/image'
 
     # img name can simply be svc_name for local deploys
     img_name = svc_name
@@ -77,14 +77,14 @@ def deploy_postgres():
 def setup_buttons():
     # migrate button
     cmd_button(name='db migrate',
-            resource='backend',
+            resource='postgresql',
             text='Database Migrate',
             argv=['/bin/bash', '-c', 'cd ./backend && yarn prisma:migrate']
     )
 
     # seed button
     cmd_button(name='db seed',
-            resource='backend',
+            resource='postgresql',
             text='Database Seed',
             argv=['/bin/bash', '-c', 'cd ./backend && yarn prisma:seed']
     )

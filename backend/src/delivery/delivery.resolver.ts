@@ -1,3 +1,4 @@
+import { Logger } from '@nestjs/common';
 import { Resolver, Query } from '@nestjs/graphql';
 import { DeliveryService } from './delivery.service';
 import { Delivery } from './model/delivery.model';
@@ -8,7 +9,9 @@ export class DeliveryResolver {
 
   @Query(() => [Delivery])
   async deliveries() {
-    return this.deliveryService.findAll();
-    // return []
+    Logger.log('[DeliveryResolver] returning list of deliveries');
+
+    // return this.deliveryService.findAll();
+    return []
   }
 }

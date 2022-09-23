@@ -10,7 +10,7 @@ COPY tsconfig*.json nest-cli.json ./
 COPY ./prisma ./prisma
 RUN yarn prisma:generate
 
-COPY . .
+COPY ./src ./src
 COPY ./.env.tilt ./.env
 
 RUN yarn build

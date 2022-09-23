@@ -27,8 +27,8 @@ const DeliveryList = () => {
   return (
     <div className="p-2 rounded-2xl mx-8">
       <div className="text-center text-2xl font-bold mb-4 text-yellow">
-        {/* <h1> I am Lrrr </h1> */}
-        <h1> Deliveries </h1>
+        <h1> I am Lrrr </h1>
+        {/* <h1> Deliveries </h1> */}
       </div>
       <ul role="list" className="grid grid-cols-1 gap-4">
         {data.deliveries.map((delivery: any) => (
